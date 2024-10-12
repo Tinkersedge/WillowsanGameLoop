@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ptgechj5fpf"]
+
+[ext_resource type="Texture2D" uid="uid://d0pkwfnknou7d" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsIcons/IconButton_Small_Orange_Square.png" id="1_0xmiv"]
+
+[node name="ChoiceButton" type="TextureButton"]
+custom_minimum_size = Vector2(550, 150)
+offset_right = 593.0
+offset_bottom = 145.0
+stretch_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 584.0
+offset_bottom = 141.0
+texture = ExtResource("1_0xmiv")
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="Response" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 66.0
+offset_top = 46.0
+offset_right = 522.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Here is the choice text."

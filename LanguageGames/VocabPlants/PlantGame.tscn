@@ -1,0 +1,569 @@
+[gd_scene load_steps=25 format=3 uid="uid://w04l42pcw37a"]
+
+[ext_resource type="Script" path="res://LanguageGames/VocabPlants/PlantGame.gd" id="1_xssbm"]
+[ext_resource type="Texture2D" uid="uid://8l7y5l8o6evq" path="res://LanguageGames/VocabPlants/Assets/Untitled_Artwork-2.png" id="2_3x5v5"]
+[ext_resource type="Texture2D" uid="uid://dscp7mpf6obas" path="res://LanguageGames/VocabPlants/Assets/Untitled_Artwork-3.png" id="2_ccq51"]
+[ext_resource type="Texture2D" uid="uid://d2jwuflnm54iw" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/BoxesBanners/Box_Orange_Square.png" id="6_8wtbb"]
+[ext_resource type="Texture2D" uid="uid://c5gi5t3t34q1r" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/PremadeButtons_XRed.png" id="7_6dnpi"]
+[ext_resource type="Texture2D" uid="uid://c1g2eaclir14k" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/ButtonText_Small_Green_Round.png" id="8_idv4v"]
+[ext_resource type="Texture2D" uid="uid://vlhnoppceodn" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/ButtonText_Small_Green_Square.png" id="9_y1j4e"]
+[ext_resource type="Texture2D" uid="uid://bpud8gug1lugu" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/ButtonText_Small_Blue_Round.png" id="10_5kewv"]
+[ext_resource type="Texture2D" uid="uid://1iq2phtlllnq" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder4.PNG" id="10_imanb"]
+[ext_resource type="Texture2D" uid="uid://coyywny3jexuc" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/ButtonText_Small_Blue_Square.png" id="11_vx805"]
+[ext_resource type="Texture2D" uid="uid://cg5bstk7ukbm" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder2.PNG" id="12_k1eal"]
+[ext_resource type="Texture2D" uid="uid://o02eecntu503" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder5.PNG" id="13_vphq7"]
+[ext_resource type="Texture2D" uid="uid://dwika6h7lh24a" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder1.PNG" id="14_a5gaw"]
+[ext_resource type="Texture2D" uid="uid://bqniyepqvapik" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder8.PNG" id="15_wvlxs"]
+[ext_resource type="Texture2D" uid="uid://bs6r1seefn5qm" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder3.PNG" id="16_5agjd"]
+[ext_resource type="Texture2D" uid="uid://c5xif5x6y42kl" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder9.PNG" id="17_ioijl"]
+[ext_resource type="Texture2D" uid="uid://1hufjk4r5d5p" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder6.PNG" id="18_k4gah"]
+[ext_resource type="Texture2D" uid="uid://dfby8dxatp4y" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder7.PNG" id="19_rs3df"]
+[ext_resource type="Texture2D" uid="uid://efmeu0kix5v7" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/Sliders/ScrollBar_Blank_Base.png" id="20_0jng0"]
+[ext_resource type="Texture2D" uid="uid://kj81y1fwx577" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/Sliders/ScrollBar_Blue_Scroller.png" id="21_1u0yk"]
+[ext_resource type="Texture2D" uid="uid://cjctjji1kpn3m" path="res://PlaceholdersDeleteMe/OrangeSqaureRim.png" id="22_npr37"]
+[ext_resource type="Texture2D" uid="uid://d3goetgjeoxur" path="res://PlaceholdersDeleteMe/PurpArrow.png" id="23_fykvr"]
+[ext_resource type="Script" path="res://LanguageGames/VocabPlants/GardenMgr.gd" id="23_wgj5u"]
+[ext_resource type="Script" path="res://LanguageGames/VocabPlants/TendingPlant.gd" id="24_ob2sg"]
+
+[node name="PlantGame" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_xssbm")
+
+[node name="UntitledArtwork-2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(969, 522)
+texture = ExtResource("2_3x5v5")
+
+[node name="PlantBorder" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(963.866, 539.305)
+scale = Vector2(1.01056, 1.02166)
+texture = ExtResource("2_ccq51")
+
+[node name="Warning" type="Node2D" parent="."]
+visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Warning"]
+offset_left = 381.0
+offset_top = 193.0
+offset_right = 1633.0
+offset_bottom = 833.0
+texture = ExtResource("6_8wtbb")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="PremadeButtonsXRed" type="Sprite2D" parent="Warning"]
+position = Vector2(410, 218)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6dnpi")
+
+[node name="Label" type="Label" parent="Warning"]
+offset_left = 509.0
+offset_top = 294.0
+offset_right = 1498.0
+offset_bottom = 715.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 44
+text = "Uh oh!
+
+You do not have any seeds planted or in your inventory yet. 
+
+Please head to the Florist to buy some seeds or try getting to know some people. They often give gifts that could include seeds!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseWarning" type="TextureButton" parent="Warning"]
+offset_right = 1930.0
+offset_bottom = 1080.0
+
+[node name="PoT" type="Node2D" parent="." groups=["PlantScenes"]]
+visible = false
+
+[node name="PlantMe" type="TextureButton" parent="PoT"]
+offset_left = 343.0
+offset_top = 320.0
+offset_right = 878.0
+offset_bottom = 569.0
+texture_normal = ExtResource("8_idv4v")
+texture_hover = ExtResource("9_y1j4e")
+
+[node name="Label" type="Label" parent="PoT/PlantMe"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 100.0
+offset_right = 402.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Plant Seed"
+
+[node name="TendMe" type="TextureButton" parent="PoT"]
+offset_left = 1044.0
+offset_top = 324.0
+offset_right = 1579.0
+offset_bottom = 573.0
+texture_normal = ExtResource("10_5kewv")
+texture_hover = ExtResource("11_vx805")
+
+[node name="Label" type="Label" parent="PoT/TendMe"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 100.0
+offset_right = 402.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Tend Plants"
+
+[node name="PickPlant" type="Node2D" parent="." groups=["PlantScenes"]]
+visible = false
+
+[node name="PickPlant" type="Sprite2D" parent="PickPlant"]
+position = Vector2(963.866, 539.305)
+scale = Vector2(1.01056, 1.02166)
+texture = ExtResource("2_ccq51")
+
+[node name="PlantArea" type="Control" parent="PickPlant"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlantShelf1" type="HBoxContainer" parent="PickPlant/PlantArea"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 134.0
+offset_top = 265.0
+offset_right = 1810.0
+offset_bottom = 634.0
+alignment = 1
+
+[node name="TendPlant" type="Node2D" parent="." groups=["PlantScenes"]]
+unique_name_in_owner = true
+visible = false
+
+[node name="PlantGamePlantholder4" type="Sprite2D" parent="TendPlant"]
+position = Vector2(956, 549)
+texture = ExtResource("10_imanb")
+
+[node name="PlantProb" type="Node2D" parent="TendPlant"]
+visible = false
+
+[node name="UntitledArtwork4" type="Sprite2D" parent="TendPlant/PlantProb"]
+position = Vector2(960, 542.5)
+scale = Vector2(1.00417, 1.00648)
+
+[node name="probButton" type="TextureButton" parent="TendPlant/PlantProb"]
+offset_right = 1932.0
+offset_bottom = 1086.0
+
+[node name="SimpleGame" type="Node2D" parent="TendPlant"]
+unique_name_in_owner = true
+
+[node name="PlantGamePlantholder2" type="Sprite2D" parent="TendPlant/SimpleGame"]
+position = Vector2(1106, 858)
+texture = ExtResource("12_k1eal")
+
+[node name="Plant" type="Sprite2D" parent="TendPlant/SimpleGame"]
+position = Vector2(1606, 746)
+texture = ExtResource("13_vphq7")
+
+[node name="AudioButton" type="Sprite2D" parent="TendPlant/SimpleGame"]
+position = Vector2(1316, 986)
+texture = ExtResource("14_a5gaw")
+
+[node name="Frame" type="Sprite2D" parent="TendPlant/SimpleGame"]
+texture = ExtResource("15_wvlxs")
+centered = false
+
+[node name="Question" type="Label" parent="TendPlant/SimpleGame"]
+unique_name_in_owner = true
+offset_left = 820.0
+offset_top = 943.0
+offset_right = 1040.0
+offset_bottom = 1022.0
+theme_override_font_sizes/font_size = 70
+text = "WordE"
+
+[node name="Ans1" type="TextureButton" parent="TendPlant/SimpleGame" groups=["AnswerButtonsSimple"]]
+unique_name_in_owner = true
+offset_left = 449.0
+offset_top = 719.0
+offset_right = 657.0
+offset_bottom = 877.0
+
+[node name="Ans" type="Label" parent="TendPlant/SimpleGame/Ans1"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 200.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WordE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ans2" type="TextureButton" parent="TendPlant/SimpleGame" groups=["AnswerButtonsSimple"]]
+unique_name_in_owner = true
+offset_left = 645.0
+offset_top = 715.0
+offset_right = 853.0
+offset_bottom = 873.0
+
+[node name="Ans" type="Label" parent="TendPlant/SimpleGame/Ans2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 31.0
+offset_right = 185.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WordE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ans3" type="TextureButton" parent="TendPlant/SimpleGame" groups=["AnswerButtonsSimple"]]
+unique_name_in_owner = true
+offset_left = 832.0
+offset_top = 715.0
+offset_right = 1040.0
+offset_bottom = 873.0
+
+[node name="Ans" type="Label" parent="TendPlant/SimpleGame/Ans3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 31.0
+offset_right = 185.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WordE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ans4" type="TextureButton" parent="TendPlant/SimpleGame" groups=["AnswerButtonsSimple"]]
+unique_name_in_owner = true
+offset_left = 1028.0
+offset_top = 717.0
+offset_right = 1208.0
+offset_bottom = 875.0
+
+[node name="Ans" type="Label" parent="TendPlant/SimpleGame/Ans4"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 31.0
+offset_right = 185.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WordE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ans5" type="TextureButton" parent="TendPlant/SimpleGame" groups=["AnswerButtonsSimple"]]
+unique_name_in_owner = true
+offset_left = 1204.0
+offset_top = 715.0
+offset_right = 1397.0
+offset_bottom = 873.0
+
+[node name="Ans" type="Label" parent="TendPlant/SimpleGame/Ans5"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 31.0
+offset_right = 185.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WordE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypingGame" type="Node2D" parent="TendPlant"]
+unique_name_in_owner = true
+visible = false
+
+[node name="TypingGameBg" type="Sprite2D" parent="TendPlant/TypingGame"]
+position = Vector2(1256, 592)
+texture = ExtResource("16_5agjd")
+
+[node name="Plant" type="Sprite2D" parent="TendPlant/TypingGame"]
+position = Vector2(943, 746)
+texture = ExtResource("13_vphq7")
+
+[node name="Frame" type="Sprite2D" parent="TendPlant/TypingGame"]
+texture = ExtResource("15_wvlxs")
+centered = false
+
+[node name="AudioButton" type="Sprite2D" parent="TendPlant/TypingGame"]
+position = Vector2(1127, 247)
+texture = ExtResource("14_a5gaw")
+
+[node name="ClueWord" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 840.0
+offset_top = 204.0
+offset_right = 1060.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 70
+text = "WordE"
+
+[node name="Syl1" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1364.0
+offset_top = 262.0
+offset_right = 1466.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl2" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1485.0
+offset_top = 261.0
+offset_right = 1587.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl3" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1612.0
+offset_top = 260.0
+offset_right = 1714.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl4" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1375.0
+offset_top = 404.0
+offset_right = 1477.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl5" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1497.0
+offset_top = 409.0
+offset_right = 1599.0
+offset_bottom = 515.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl6" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1616.0
+offset_top = 408.0
+offset_right = 1718.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl7" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1376.0
+offset_top = 544.0
+offset_right = 1478.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl8" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1500.0
+offset_top = 543.0
+offset_right = 1602.0
+offset_bottom = 649.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl9" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1621.0
+offset_top = 544.0
+offset_right = 1723.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl10" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1390.0
+offset_top = 686.0
+offset_right = 1492.0
+offset_bottom = 792.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl11" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1510.0
+offset_top = 690.0
+offset_right = 1612.0
+offset_bottom = 796.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Syl12" type="Label" parent="TendPlant/TypingGame"]
+offset_left = 1631.0
+offset_top = 691.0
+offset_right = 1733.0
+offset_bottom = 797.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "PE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LandingSpot1" type="ColorRect" parent="TendPlant/TypingGame"]
+offset_left = 714.0
+offset_top = 927.0
+offset_right = 817.0
+offset_bottom = 1034.0
+color = Color(0.32905, 0.488131, 0.530283, 1)
+
+[node name="LandingSpot2" type="ColorRect" parent="TendPlant/TypingGame"]
+offset_left = 831.0
+offset_top = 925.0
+offset_right = 934.0
+offset_bottom = 1032.0
+color = Color(0.32905, 0.488131, 0.530283, 1)
+
+[node name="LandingSpot3" type="ColorRect" parent="TendPlant/TypingGame"]
+offset_left = 950.0
+offset_top = 927.0
+offset_right = 1053.0
+offset_bottom = 1034.0
+color = Color(0.32905, 0.488131, 0.530283, 1)
+
+[node name="LandingSpot4" type="ColorRect" parent="TendPlant/TypingGame"]
+offset_left = 1066.0
+offset_top = 928.0
+offset_right = 1169.0
+offset_bottom = 1035.0
+color = Color(0.32905, 0.488131, 0.530283, 1)
+
+[node name="SprayBottle" type="Sprite2D" parent="TendPlant"]
+position = Vector2(2138, 396)
+texture = ExtResource("17_ioijl")
+
+[node name="Scoreboard" type="Sprite2D" parent="TendPlant"]
+position = Vector2(265, 530)
+texture = ExtResource("18_k4gah")
+
+[node name="PlantScore" type="Sprite2D" parent="TendPlant/Scoreboard"]
+clip_children = 2
+position = Vector2(10, -5)
+texture = ExtResource("19_rs3df")
+
+[node name="WaterUp" type="TextureProgressBar" parent="TendPlant/Scoreboard/PlantScore"]
+unique_name_in_owner = true
+offset_left = -119.0
+offset_top = 296.0
+offset_right = 475.0
+offset_bottom = 561.0
+rotation = -1.58311
+nine_patch_stretch = true
+texture_under = ExtResource("20_0jng0")
+texture_progress = ExtResource("21_1u0yk")
+
+[node name="PickSeed" type="Node2D" parent="." groups=["PlantScenes"]]
+visible = false
+
+[node name="UntitledArtwork-3" type="Sprite2D" parent="PickSeed"]
+modulate = Color(0.276583, 0.541315, 0.555488, 1)
+position = Vector2(957, 534)
+texture = ExtResource("2_ccq51")
+
+[node name="SeedPicking" type="Control" parent="PickSeed"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = 192.0
+offset_right = 1744.0
+offset_bottom = 932.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="SeedGrid" type="GridContainer" parent="PickSeed/SeedPicking"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 400)
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 5
+
+[node name="PlantSeed" type="Node2D" parent="." groups=["PlantScenes"]]
+visible = false
+
+[node name="UntitledArtwork-3" type="Sprite2D" parent="PlantSeed"]
+modulate = Color(0.276583, 0.541315, 0.555488, 1)
+position = Vector2(957, 534)
+texture = ExtResource("2_ccq51")
+
+[node name="PlantGamePlantholder5" type="Sprite2D" parent="PlantSeed"]
+position = Vector2(1261, 708)
+scale = Vector2(1.31119, 1.31119)
+texture = ExtResource("13_vphq7")
+
+[node name="OrangeSqaureRim" type="Sprite2D" parent="PlantSeed"]
+position = Vector2(678, 552)
+scale = Vector2(1.54, 1.50847)
+texture = ExtResource("22_npr37")
+
+[node name="PurpArrow" type="Sprite2D" parent="PlantSeed"]
+position = Vector2(1274, 752)
+texture = ExtResource("23_fykvr")
+
+[node name="StartPlantButton" type="TextureButton" parent="PlantSeed"]
+offset_right = 1918.0
+offset_bottom = 1068.0
+
+[node name="GardenMgr" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("23_wgj5u")
+
+[node name="TendingPlant" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("24_ob2sg")
+
+[connection signal="visibility_changed" from="Warning" to="." method="warningVisibilityChange"]
+[connection signal="pressed" from="Warning/CloseWarning" to="." method="closeWarning"]
+[connection signal="pressed" from="PoT/PlantMe" to="." method="plantSeeds"]
+[connection signal="pressed" from="PoT/TendMe" to="." method="tendGarden"]

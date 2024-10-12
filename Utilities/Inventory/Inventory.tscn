@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceuovx4gy3bco"]
+
+[ext_resource type="Script" path="res://Utilities/Inventory/Inventory.gd" id="1_4mu2w"]
+[ext_resource type="Texture2D" uid="uid://cjctjji1kpn3m" path="res://PlaceholdersDeleteMe/OrangeSqaureRim.png" id="1_y3y0c"]
+[ext_resource type="PackedScene" uid="uid://dqk6c0un73ddo" path="res://Utilities/Inventory/InventoryUi.tscn" id="3_6sb1e"]
+[ext_resource type="PackedScene" uid="uid://desuv7eynbbg5" path="res://Utilities/Inventory/InvTrashCan.tscn" id="4_mryfi"]
+[ext_resource type="Texture2D" uid="uid://h6yx8uqbtx01" path="res://PlaceholdersDeleteMe/TealSquare.png" id="5_v2nfr"]
+[ext_resource type="Texture2D" uid="uid://b5ucaofefjy8x" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/PremadeButtons_YesGreen.png" id="6_qk0w5"]
+[ext_resource type="Texture2D" uid="uid://brmsaiu4vs8x3" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/PremadeButtons_No.png" id="7_nyewn"]
+
+[node name="Inventory" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_4mu2w")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 445.0
+offset_top = 113.0
+offset_right = 1531.0
+offset_bottom = 730.0
+texture = ExtResource("1_y3y0c")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 150.0
+offset_right = 192.0
+offset_bottom = 217.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "INVENTORY"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="InventoryUI" parent="Control" instance=ExtResource("3_6sb1e")]
+unique_name_in_owner = true
+offset_left = 513.0
+offset_top = 222.0
+offset_right = 553.0
+offset_bottom = 262.0
+
+[node name="PopUp" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1318.0
+offset_top = 416.0
+offset_right = 1890.0
+offset_bottom = 993.0
+mouse_filter = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PopUp"]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 576.0
+texture = ExtResource("5_v2nfr")
+patch_margin_left = 70
+patch_margin_top = 70
+patch_margin_right = 70
+patch_margin_bottom = 70
+
+[node name="Label" type="Label" parent="PopUp"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 52.0
+offset_right = 428.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/font_size = 45
+text = "Throw away this item?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="YesButton" type="TextureButton" parent="PopUp" groups=["PopUpButton"]]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 54.0
+offset_top = 378.0
+offset_right = 262.0
+offset_bottom = 477.0
+texture_normal = ExtResource("6_qk0w5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NoButton" type="TextureButton" parent="PopUp" groups=["PopUpButton"]]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 313.0
+offset_top = 378.0
+offset_right = 521.0
+offset_bottom = 477.0
+texture_normal = ExtResource("7_nyewn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ItemPreview" type="TextureRect" parent="PopUp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 213.0
+offset_top = 172.0
+offset_right = 368.0
+offset_bottom = 337.0
+
+[node name="InvTrashCan" parent="." instance=ExtResource("4_mryfi")]

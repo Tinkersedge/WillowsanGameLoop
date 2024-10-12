@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://5arog25iipai"]
+
+[ext_resource type="Script" path="res://Interactives/VocabSpots/WordPop.gd" id="1_d2qm8"]
+[ext_resource type="Texture2D" uid="uid://cjctjji1kpn3m" path="res://PlaceholdersDeleteMe/OrangeSqaureRim.png" id="2_n1rx7"]
+[ext_resource type="Texture2D" uid="uid://cnj0iwlaoubke" path="res://PlaceholdersDeleteMe/blue_road_sign_sign_board_11.png" id="3_t38bp"]
+[ext_resource type="Texture2D" uid="uid://cbfyvm8ue5skk" path="res://PlaceholdersDeleteMe/PinkSquare.png" id="4_0vb0w"]
+
+[node name="WordPop" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_d2qm8")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1932.0
+offset_bottom = 1101.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 529.0
+offset_top = 170.0
+offset_right = 1443.0
+offset_bottom = 859.0
+texture = ExtResource("2_n1rx7")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="BlueRoadSignSignBoard11" type="Sprite2D" parent="."]
+position = Vector2(1375, 232)
+scale = Vector2(1.26923, 1.26923)
+texture = ExtResource("3_t38bp")
+
+[node name="PinkSquare" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.427451)
+position = Vector2(767.375, 425.537)
+scale = Vector2(0.779724, 0.796979)
+texture = ExtResource("4_0vb0w")
+
+[node name="Word_Korean" type="Label" parent="."]
+offset_left = 1072.0
+offset_top = 241.0
+offset_right = 1258.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Couch"
+
+[node name="Word_English" type="Label" parent="."]
+offset_left = 1073.0
+offset_top = 337.0
+offset_right = 1259.0
+offset_bottom = 404.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Couch"
+
+[node name="Definition" type="Label" parent="."]
+offset_left = 996.0
+offset_top = 496.0
+offset_right = 1115.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Definition
+"
+
+[node name="OtherStuff" type="Label" parent="."]
+offset_left = 610.0
+offset_top = 680.0
+offset_right = 929.0
+offset_bottom = 773.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Example Sentences:
+I sit on the couch.
+The couch is comfortable.
+"
+
+[node name="ClosePop" type="TextureButton" parent="."]
+z_index = 10
+offset_left = 996.0
+offset_top = 187.0
+offset_right = 1425.0
+offset_bottom = 458.0
+
+[node name="KnowButton" type="Button" parent="."]
+offset_left = 1179.0
+offset_top = 748.0
+offset_right = 1293.0
+offset_bottom = 819.0
+theme_override_font_sizes/font_size = 28
+text = "Know"
+
+[node name="AddButton" type="Button" parent="."]
+offset_left = 1304.0
+offset_top = 748.0
+offset_right = 1408.0
+offset_bottom = 816.0
+theme_override_font_sizes/font_size = 26
+text = "Add to Deck"
+autowrap_mode = 3
+clip_text = true
+
+[connection signal="pressed" from="ClosePop" to="." method="_on_close_pop_pressed"]
+[connection signal="pressed" from="KnowButton" to="." method="addWordToKnown"]
+[connection signal="pressed" from="AddButton" to="." method="addWordToDeck"]

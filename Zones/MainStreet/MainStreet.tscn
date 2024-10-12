@@ -1,0 +1,189 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5350udnvbj6f"]
+
+[ext_resource type="Script" path="res://Zones/MainStreet/MainStreet.gd" id="1_d2b5e"]
+[ext_resource type="Texture2D" uid="uid://ds1smr0bs56gt" path="res://PlaceholdersDeleteMe/WholeSceneArt/10BuildingsOnStreet.jpg" id="2_5l3ps"]
+[ext_resource type="PackedScene" uid="uid://bmbphb828lnhm" path="res://Interactives/Doors/Door.tscn" id="3_pr8ab"]
+[ext_resource type="PackedScene" uid="uid://e63sl188w0m" path="res://Characters/Player/Kevin.tscn" id="4_uimxh"]
+[ext_resource type="PackedScene" uid="uid://dwex6pgieg76i" path="res://Interactives/VocabSpots/WordObjects.tscn" id="5_0jd5j"]
+[ext_resource type="PackedScene" uid="uid://c1i5ua7uyeifv" path="res://Utilities/Inventory/InventoryItem.tscn" id="6_rwxf7"]
+[ext_resource type="Texture2D" uid="uid://djknqq78qw7i4" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/Icons/Icon_Small_WhiteOutline_Diamond.png" id="7_56def"]
+[ext_resource type="Texture2D" uid="uid://b7at4nkwxs4j3" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/Icons/Icon_Small_CoinDollar.png" id="8_f0tfa"]
+[ext_resource type="PackedScene" uid="uid://bo8sp145wxa0q" path="res://Characters/NPCs/NpcTemplate.tscn" id="8_sq77u"]
+[ext_resource type="PackedScene" uid="uid://cmpwpjik4fyeq" path="res://Utilities/Actionable.tscn" id="9_6thfk"]
+[ext_resource type="Texture2D" uid="uid://bm2q6p1y2oebh" path="res://PlaceholdersDeleteMe/Icon - Heart.png" id="9_fjjx6"]
+[ext_resource type="Texture2D" uid="uid://deo5shvtc0urj" path="res://PlaceholdersDeleteMe/Characters/IMG_4126.PNG" id="10_1tef0"]
+[ext_resource type="Texture2D" uid="uid://dgjwghetxpkjj" path="res://PlaceholdersDeleteMe/Characters/IMG_4135.PNG" id="11_4psqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ut43"]
+size = Vector2(5944, 485)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddqsh"]
+size = Vector2(154, 1797)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epewh"]
+size = Vector2(287.5, 345)
+
+[node name="MainStreet" type="Node2D"]
+script = ExtResource("1_d2b5e")
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="10BuildingsOnStreet" type="Sprite2D" parent="Bg"]
+position = Vector2(2945, 869)
+scale = Vector2(1.47, 1.47)
+texture = ExtResource("2_5l3ps")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bg"]
+collision_layer = 2
+
+[node name="Ground" type="CollisionShape2D" parent="Bg/StaticBody2D"]
+position = Vector2(2968, 1924)
+shape = SubResource("RectangleShape2D_4ut43")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Bg/StaticBody2D"]
+position = Vector2(32, 887)
+shape = SubResource("RectangleShape2D_ddqsh")
+
+[node name="WallRight" type="CollisionShape2D" parent="Bg/StaticBody2D"]
+position = Vector2(5868, 932)
+shape = SubResource("RectangleShape2D_ddqsh")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_House" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(3004, 1264)
+doorType = 1
+destination = "res://Zones/MainStreet/House/House.tscn"
+
+[node name="Door_Doctor" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(1721, 1224)
+doorType = 1
+destination = "res://Zones/MainStreet/Doctor/Doctor.tscn"
+
+[node name="Door_TownHall" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(504, 1307)
+doorType = 1
+destination = "res://Zones/MainStreet/TownHall/TownHall.tscn"
+
+[node name="Door_Florist" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(3624, 1297)
+doorType = 1
+destination = "res://Zones/MainStreet/Florist/Florist.tscn"
+
+[node name="Door_CU81" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(5015, 1318)
+doorType = 1
+destination = "res://Zones/MainStreet/CU81/Cu81.tscn"
+
+[node name="Door_Apartment" parent="Doors" instance=ExtResource("3_pr8ab")]
+position = Vector2(5282, 1309)
+doorType = 1
+destination = "res://Zones/MainStreet/Apartment/Apartment.tscn"
+
+[node name="Kevin" parent="." instance=ExtResource("4_uimxh")]
+position = Vector2(2705, 1623)
+scale = Vector2(0.5, 0.5)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Kevin"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2705, 1623)
+scale = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = 0
+limit_right = 5829
+limit_bottom = 1800
+
+[node name="VocabObjects" type="Node2D" parent="."]
+
+[node name="Window_word" parent="VocabObjects" instance=ExtResource("5_0jd5j")]
+offset_left = 3213.0
+offset_top = 1251.0
+offset_right = 3428.0
+offset_bottom = 1374.0
+objectE = "window"
+objectName = "window"
+
+[node name="AC_word" parent="VocabObjects" instance=ExtResource("5_0jd5j")]
+offset_left = 3941.0
+offset_top = 1119.0
+offset_right = 4156.0
+offset_bottom = 1242.0
+objectE = "dog"
+objectName = "Dog"
+
+[node name="Plant_word" parent="VocabObjects" instance=ExtResource("5_0jd5j")]
+offset_left = 3131.0
+offset_top = 1536.0
+offset_right = 3301.0
+offset_bottom = 1606.0
+objectE = "plant"
+objectName = "Plant"
+
+[node name="InventoryItem" parent="." instance=ExtResource("6_rwxf7")]
+position = Vector2(2181, 1612)
+scale = Vector2(0.5, 0.5)
+itemID = "Gem"
+edTex = ExtResource("7_56def")
+
+[node name="InventoryItem4" parent="." instance=ExtResource("6_rwxf7")]
+position = Vector2(2511, 1601)
+scale = Vector2(0.5, 0.5)
+itemID = "Gem"
+edTex = ExtResource("7_56def")
+
+[node name="InventoryItem3" parent="." instance=ExtResource("6_rwxf7")]
+position = Vector2(2841, 1609)
+scale = Vector2(0.5, 0.5)
+itemID = "Coin"
+edTex = ExtResource("8_f0tfa")
+
+[node name="InventoryItem2" parent="." instance=ExtResource("6_rwxf7")]
+position = Vector2(1407, 1612)
+scale = Vector2(0.5, 0.5)
+itemID = "Heart"
+edTex = ExtResource("9_fjjx6")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Quentin" parent="NPCs" instance=ExtResource("8_sq77u")]
+position = Vector2(3368, 1659)
+npcName = "Quentin"
+npcChatID = "1"
+moveSpeed = 212
+
+[node name="Actionable" parent="NPCs/Quentin" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]
+myOwner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Quentin/Actionable"]
+position = Vector2(11.25, -162.5)
+shape = SubResource("RectangleShape2D_epewh")
+
+[node name="Tasha" parent="NPCs" instance=ExtResource("8_sq77u")]
+position = Vector2(3771, 1661)
+npcName = "Tasha"
+npcChatID = "1"
+moveSpeed = 99
+npcTexture = ExtResource("10_1tef0")
+
+[node name="Actionable" parent="NPCs/Tasha" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]
+myOwner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Tasha/Actionable"]
+position = Vector2(11.25, -162.5)
+shape = SubResource("RectangleShape2D_epewh")
+
+[node name="Tony" parent="NPCs" instance=ExtResource("8_sq77u")]
+position = Vector2(1681, 1666)
+npcName = "Tony"
+npcChatID = "1"
+moveSpeed = 249
+npcTexture = ExtResource("11_4psqv")
+
+[node name="Actionable" parent="NPCs/Tony" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]
+myOwner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Tony/Actionable"]
+position = Vector2(11.25, -162.5)
+shape = SubResource("RectangleShape2D_epewh")

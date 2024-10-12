@@ -1,0 +1,48 @@
+{
+	"chats": [
+		{
+			"id": "1",
+			"character": "Tasha",
+			"korean": "안녕하세요",
+      		"english": "Hello",
+      		"next_chat": "2"
+		},
+		{
+			"id": "2",
+			"character": "Tasha",
+			"korean": "오늘 날씨가 좋네요.",
+      		"english": "The weather is nice today.",
+      		"next_chat": "3"
+		},
+		{
+			"id": "3",
+			"character": "Tasha***",
+			"korean": "안녕하세요, 어떻게 도와드릴까요?",
+      		"english": "Hello, how can I help you?",
+      		"responses": [
+      			{
+      				"text_kr": "저는 괜찮아요",
+      				"text_en": "I'm good.",
+      				"next_chat": "4"
+      			},
+      			{
+      				"text_kr": "별로에요",
+      				"text_en": "Not great.",
+      				"next_chat": "5"
+      			}
+      		]
+		},
+		{
+			"id": "4",
+			"character": "Tasha",
+			"korean": "좋네요!",
+      		"english": "That's good to hear."
+		},
+		{
+			"id": "5",
+			"character": "Tasha",
+			"korean": "아, 힘내세요!",
+      		"english": "Oh, stay strong!"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://cqra01jmplead"
+valid=false
+
+[deps]
+
+source_file="res://Data/Vocabulary/VocabData.json"
+
+[params]
+
+compress=true

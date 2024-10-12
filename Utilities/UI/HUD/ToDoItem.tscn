@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxfpxm6yh725"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a00uc"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xve22"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 0.631373)
+
+[node name="ToDoItem" type="Button"]
+custom_minimum_size = Vector2(360, 80)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_a00uc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xve22")
+text = "To Do Item Text"

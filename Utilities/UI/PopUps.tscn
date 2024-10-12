@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bulro5tyha72s"]
+
+[ext_resource type="Script" path="res://Utilities/UI/PopUps.gd" id="1_minju"]
+[ext_resource type="PackedScene" uid="uid://5arog25iipai" path="res://Interactives/VocabSpots/WordPop.tscn" id="2_cu4le"]
+[ext_resource type="PackedScene" uid="uid://bpy4ojhqyxnc2" path="res://LanguageGames/BookClub/BookcasePop.tscn" id="3_gbm24"]
+[ext_resource type="PackedScene" uid="uid://6ex1p7acmwsh" path="res://LanguageGames/BookClub/BookBase.tscn" id="4_pn8ip"]
+[ext_resource type="PackedScene" uid="uid://w04l42pcw37a" path="res://LanguageGames/VocabPlants/PlantGame.tscn" id="5_gwhr2"]
+
+[node name="PopUps" type="CanvasLayer"]
+script = ExtResource("1_minju")
+
+[node name="WordPop" parent="." groups=["Popup"] instance=ExtResource("2_cu4le")]
+unique_name_in_owner = true
+visible = false
+
+[node name="BookcasePop" parent="." groups=["Popup"] instance=ExtResource("3_gbm24")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Book_Base" parent="." groups=["Popup"] instance=ExtResource("4_pn8ip")]
+visible = false
+
+[node name="PlantGame" parent="." groups=["Popup"] instance=ExtResource("5_gwhr2")]
+visible = false

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://jdk87cactys7"]
+
+[ext_resource type="Texture2D" uid="uid://2ws3b2ljd6qn" path="res://PlaceholdersDeleteMe/Container - Item Shop.png" id="1_qiu4o"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 125)
+offset_right = 858.0
+offset_bottom = 125.0
+text = "Quest Name and Face here"
+icon = ExtResource("1_qiu4o")
+expand_icon = true

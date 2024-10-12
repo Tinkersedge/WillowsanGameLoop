@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctia5a72wokgq"]
+
+[node name="WordButton" type="Button"]
+offset_right = 140.0
+offset_bottom = 50.0
+mouse_filter = 1
+theme_override_colors/font_hover_color = Color(0.0993563, 0.149354, 0.474876, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Korean"
+flat = true

@@ -1,0 +1,174 @@
+[gd_scene load_steps=17 format=3 uid="uid://e63sl188w0m"]
+
+[ext_resource type="Script" path="res://Characters/Player/Kevin.gd" id="1_kkca7"]
+[ext_resource type="Texture2D" uid="uid://0qx3w4rcmh8d" path="res://PlaceholdersDeleteMe/Characters/tashaIdle.png" id="2_ijq2g"]
+[ext_resource type="Texture2D" uid="uid://ctbvfxdgknhyl" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-1 2.png" id="3_twtnt"]
+[ext_resource type="Texture2D" uid="uid://due8ynjdeuixr" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-2 2.png" id="4_2g46u"]
+[ext_resource type="Texture2D" uid="uid://dhi2e6igdlxks" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-3 2.png" id="5_5q02j"]
+[ext_resource type="Texture2D" uid="uid://8iewt26a0mho" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-4 2.png" id="6_klgdi"]
+[ext_resource type="Texture2D" uid="uid://du5hoq4qsxv3j" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-5 2.png" id="7_cv8gh"]
+[ext_resource type="Texture2D" uid="uid://dqusa7v1prwgp" path="res://PlaceholdersDeleteMe/Characters/Untitled_Artwork-6.png" id="8_uq4c3"]
+[ext_resource type="Script" path="res://Characters/Player/MoveComponent.gd" id="9_l67w8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvo6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ijq2g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_twtnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2g46u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5q02j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_klgdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cv8gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uq4c3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ui0bh"]
+radius = 117.0
+height = 438.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li8v2"]
+radius = 102.0
+height = 486.0
+
+[sub_resource type="Animation" id="Animation_tsre1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Kevin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kevin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jutly"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Kevin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kevin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_q03cd"]
+resource_name = "walk"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Kevin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kevin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh3hp"]
+_data = {
+"RESET": SubResource("Animation_tsre1"),
+"idle": SubResource("Animation_jutly"),
+"walk": SubResource("Animation_q03cd")
+}
+
+[node name="Kevin" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 2
+script = ExtResource("1_kkca7")
+
+[node name="Kevin" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -259)
+sprite_frames = SubResource("SpriteFrames_uvo6e")
+animation = &"idle"
+
+[node name="InteractionArea" type="Area2D" parent="Kevin" groups=["PlayerZone"]]
+unique_name_in_owner = true
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kevin/InteractionArea"]
+position = Vector2(-126, 10)
+shape = SubResource("CapsuleShape2D_ui0bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -264)
+shape = SubResource("CapsuleShape2D_li8v2")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("player", "animPlayer")]
+script = ExtResource("9_l67w8")
+player = NodePath("..")
+animPlayer = NodePath("../AnimPlayer")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bh3hp")
+}

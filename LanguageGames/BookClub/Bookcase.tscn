@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhbywaryqfnp2"]
+
+[ext_resource type="Script" path="res://LanguageGames/BookClub/Bookcase.gd" id="1_dqs5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yx2s"]
+size = Vector2(183, 108)
+
+[node name="Bookcase" type="Area2D" groups=["bookcases"]]
+process_mode = 3
+position = Vector2(-3, 1)
+collision_layer = 260
+script = ExtResource("1_dqs5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(81.5, 44)
+shape = SubResource("RectangleShape2D_4yx2s")
+
+[node name="Hint" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 53.0
+offset_top = -9.0
+offset_right = 118.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 50
+text = "[E]"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

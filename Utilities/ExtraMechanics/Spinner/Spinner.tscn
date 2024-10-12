@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://08nmh1cmn8f2"]
+
+[ext_resource type="Script" path="res://Utilities/ExtraMechanics/Spinner/Spinner.gd" id="1_dx87p"]
+[ext_resource type="Texture2D" uid="uid://baycvl83ehjnn" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_background.png" id="1_qncvb"]
+[ext_resource type="Texture2D" uid="uid://ctn4ic45oyu24" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_front_empty.png" id="2_y0k1n"]
+[ext_resource type="Texture2D" uid="uid://dia2ypd8vguga" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_button.png" id="3_ju0mq"]
+[ext_resource type="Texture2D" uid="uid://8h1ekrivfu70" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_button_ring.png" id="3_kltpt"]
+[ext_resource type="Texture2D" uid="uid://lmm1wfiw4gal" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_button_press.png" id="4_oe5n3"]
+[ext_resource type="Texture2D" uid="uid://jvhgrg0g4wn7" path="res://Utilities/ExtraMechanics/Spinner/spin_wheel_arrow.png" id="6_w535f"]
+
+[node name="Spinner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dx87p")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [540.0]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -450.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qncvb")
+
+[node name="Front" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 900.0
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(449.963, 450.185)
+texture = ExtResource("2_y0k1n")
+
+[node name="ButtonBg" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kltpt")
+
+[node name="SpinButton" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -100.0
+offset_right = 101.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.88, 0.88)
+pivot_offset = Vector2(98.8636, 100)
+texture_normal = ExtResource("3_ju0mq")
+texture_pressed = ExtResource("4_oe5n3")
+stretch_mode = 3
+
+[node name="Arrow" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 181.0
+grow_horizontal = 2
+scale = Vector2(0.621432, 0.621432)
+pivot_offset = Vector2(99.7694, 0)
+texture = ExtResource("6_w535f")
+
+[connection signal="pressed" from="Background/SpinButton" to="." method="letsSpin"]

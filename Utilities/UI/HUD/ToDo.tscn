@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfljy4ppxssqn"]
+
+[ext_resource type="Script" path="res://Utilities/UI/HUD/ToDo.gd" id="1_ultnc"]
+[ext_resource type="Texture2D" uid="uid://xnbprdh6vpi0" path="res://PlaceholdersDeleteMe/listBg.png" id="2_jj7tl"]
+
+[node name="ToDo" type="Control"]
+layout_mode = 3
+anchor_left = 0.8
+anchor_top = 0.262963
+anchor_right = 0.993229
+anchor_bottom = 0.987037
+script = ExtResource("1_ultnc")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jj7tl")
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="ToDoMargins" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.5
+offset_right = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VSplitContainer" type="VSplitContainer" parent="NinePatchRect/ToDoMargins"]
+layout_mode = 2
+focus_mode = 1
+
+[node name="ToDoToday" type="VBoxContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoToday"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "To Do Today"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoToday"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DailyTaskList" type="VBoxContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoToday/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ToDoQuests" type="VBoxContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoQuests"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Active Quests"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoQuests"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestTaskList" type="VBoxContainer" parent="NinePatchRect/ToDoMargins/VSplitContainer/ToDoQuests/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,11 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], 안녕하세요, 한국어 할 수 있습니까? [ID:t2c48f351d7]
+- 사과에 대해 배우고 싶습니다 [ID:t032ef2dab5]
+	Nathan: 사과는 맛있어요! [ID:te526486e63]
+- 나는 책을 한권 읽고 싶어요. [ID:t277cb5ef9b]
+	Nathan: 책을 읽는 것은 즐겁습니다! [ID:tf9129bca12]
+- 다시 시작합니다. [ID:tb7a117dfa7] => start
+- 대화 종료 [ID:t97ae199b0b] => END
+Nathan: 더 배우기 [ID:tf8b092cc55]
+=> END
+

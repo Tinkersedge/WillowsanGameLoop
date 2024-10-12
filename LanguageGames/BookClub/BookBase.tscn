@@ -1,0 +1,174 @@
+[gd_scene load_steps=8 format=3 uid="uid://6ex1p7acmwsh"]
+
+[ext_resource type="Script" path="res://LanguageGames/BookClub/BookBase.gd" id="1_etj6x"]
+[ext_resource type="Texture2D" uid="uid://btiveayrt4hdj" path="res://LanguageGames/BookClub/bookStuff/book_cover/blue_book_cover.png" id="1_nrcaq"]
+[ext_resource type="Texture2D" uid="uid://nej7wp4xr3gk" path="res://LanguageGames/BookClub/bookStuff/book_cover/page_stack.png" id="2_4lqkc"]
+[ext_resource type="Texture2D" uid="uid://cp71jsmg47sfd" path="res://LanguageGames/BookClub/bookStuff/blue_01.png" id="3_xxxb2"]
+[ext_resource type="Texture2D" uid="uid://hc0dgqlxmmkc" path="res://LanguageGames/BookClub/bookStuff/yellow_01.png" id="4_gbhii"]
+[ext_resource type="Texture2D" uid="uid://cqbm4x3520o0f" path="res://PlaceholdersDeleteMe/Window - Popup.png" id="5_rjmqf"]
+[ext_resource type="Texture2D" uid="uid://xpkdc6gkupg" path="res://PlaceholdersDeleteMe/Icon - Star Enable.png" id="7_u67ci"]
+
+[node name="Book_Base" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_etj6x")
+
+[node name="BlueBookCover" type="Sprite2D" parent="."]
+position = Vector2(955, 530)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_nrcaq")
+
+[node name="PageStack" type="Sprite2D" parent="BlueBookCover"]
+position = Vector2(0.00012207, -6.66669)
+texture = ExtResource("2_4lqkc")
+
+[node name="GlossaryButton" type="TextureButton" parent="."]
+offset_left = 1383.0
+offset_top = 905.0
+offset_right = 1577.0
+offset_bottom = 1049.0
+
+[node name="GlossaryMarker" type="Sprite2D" parent="GlossaryButton"]
+position = Vector2(94, 71)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_xxxb2")
+
+[node name="BookButton" type="TextureButton" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 922.0
+offset_right = 450.0
+offset_bottom = 1048.0
+
+[node name="Yellow01" type="Sprite2D" parent="BookButton"]
+position = Vector2(103, 57)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_gbhii")
+
+[node name="KoreanParagraph" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1045.0
+offset_top = 568.0
+offset_right = -326.0
+offset_bottom = -375.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Picture" type="Sprite2D" parent="KoreanParagraph"]
+position = Vector2(281, -215)
+scale = Vector2(0.752604, 0.828125)
+texture = ExtResource("5_rjmqf")
+
+[node name="Sentence" type="HFlowContainer" parent="KoreanParagraph"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_right = 275.0
+offset_bottom = 49.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="VocabList" type="Node2D" parent="."]
+visible = false
+
+[node name="AddToDeck" type="Button" parent="VocabList"]
+offset_left = 1219.0
+offset_top = 808.0
+offset_right = 1612.0
+offset_bottom = 857.0
+theme_override_font_sizes/font_size = 36
+text = "Add All Words to Deck"
+
+[node name="Label" type="Label" parent="VocabList"]
+offset_left = 1116.0
+offset_top = 142.0
+offset_right = 1498.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Vocabulary List"
+horizontal_alignment = 1
+
+[node name="Breakdown" type="Node2D" parent="."]
+
+[node name="SL" type="Control" parent="Breakdown"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 299.0
+offset_top = 149.0
+offset_right = 1602.0
+offset_bottom = 845.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PL" type="HBoxContainer" parent="Breakdown/SL"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_right = 27.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 130
+
+[node name="KoreanSentences" type="VBoxContainer" parent="Breakdown/SL/PL"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="EnglishSentences" type="VBoxContainer" parent="Breakdown/SL/PL"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="EndPage" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="EndPage"]
+offset_left = 1216.0
+offset_top = 294.0
+offset_right = 1419.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "끝
+kkeut
+The End."
+horizontal_alignment = 1
+
+[node name="CloseBook" type="Button" parent="EndPage"]
+offset_left = 1203.0
+offset_top = 599.0
+offset_right = 1437.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 40
+text = "Close Book."
+
+[node name="CloseBook2" type="Button" parent="EndPage"]
+offset_left = 1200.0
+offset_top = 684.0
+offset_right = 1434.0
+offset_bottom = 737.0
+theme_override_font_sizes/font_size = 40
+text = "Quiz"
+
+[node name="PageLayout" type="Node2D" parent="."]
+
+[node name="PageTurner" type="TextureButton" parent="PageLayout"]
+offset_left = 1563.0
+offset_top = 829.0
+offset_right = 1648.0
+offset_bottom = 912.0
+
+[node name="star" type="Sprite2D" parent="PageLayout/PageTurner"]
+position = Vector2(42, 40)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("7_u67ci")
+
+[connection signal="pressed" from="EndPage/CloseBook" to="." method="bookClosed"]
+[connection signal="pressed" from="PageLayout/PageTurner" to="." method="turnPage"]

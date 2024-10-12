@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1i5ua7uyeifv"]
+
+[ext_resource type="Script" path="res://Utilities/Inventory/InventoryItem.gd" id="1_mhpur"]
+[ext_resource type="PackedScene" uid="uid://dcma5trmycmki" path="res://Interactives/Doors/Hint.tscn" id="3_etcwy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imet6"]
+radius = 146.24
+
+[node name="InventoryItem" type="Node2D" groups=["Items", "Pickupables"]]
+script = ExtResource("1_mhpur")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_imet6")
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Hint" parent="." instance=ExtResource("3_etcwy")]
+visible = false
+offset_left = -34.0
+offset_top = 78.0
+offset_right = 31.0
+offset_bottom = 135.0
+scale = Vector2(1.5, 1.5)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

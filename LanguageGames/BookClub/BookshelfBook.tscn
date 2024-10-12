@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77vyrp001vd3"]
+
+[ext_resource type="Texture2D" uid="uid://dkthbk7ck2xko" path="res://LanguageGames/BookClub/bookStuff/purple_perspective.png" id="1_becc0"]
+
+[node name="book1" type="Control"]
+custom_minimum_size = Vector2(150, 490)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 490.0
+mouse_filter = 2
+
+[node name="BookButton" type="TextureButton" parent="." groups=["bookBts"]]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 154.0
+offset_bottom = 477.0
+
+[node name="BasicBook" type="Sprite2D" parent="BookButton"]
+position = Vector2(76, 273)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("1_becc0")

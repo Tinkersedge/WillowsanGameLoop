@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp3gfy5lopuhy"]
+
+[ext_resource type="Texture2D" uid="uid://bhne461e4320k" path="res://PlaceholdersDeleteMe/WholeSceneArt/TownHallInterior_ph.png" id="1_2pgbq"]
+[ext_resource type="PackedScene" uid="uid://bmbphb828lnhm" path="res://Interactives/Doors/Door.tscn" id="2_x3m8j"]
+[ext_resource type="PackedScene" uid="uid://e63sl188w0m" path="res://Characters/Player/Kevin.tscn" id="3_8ofec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkddt"]
+size = Vector2(1966, 287)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbr1q"]
+size = Vector2(154, 1797)
+
+[node name="TownHall" type="Node2D"]
+
+[node name="TownHallInteriorPh" type="Sprite2D" parent="."]
+position = Vector2(961, 547)
+scale = Vector2(1.3283, 1.34804)
+texture = ExtResource("1_2pgbq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(965, 1215)
+shape = SubResource("RectangleShape2D_vkddt")
+
+[node name="WallLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43, 764)
+shape = SubResource("RectangleShape2D_kbr1q")
+
+[node name="WallRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1898, 682)
+shape = SubResource("RectangleShape2D_kbr1q")
+
+[node name="GoOutside" parent="." instance=ExtResource("2_x3m8j")]
+position = Vector2(-16, 438)
+scale = Vector2(2.5, 2.5)
+doorType = 2
+destination = "res://Zones/MainStreet/MainStreet.tscn"
+isMainDoor = true
+
+[node name="Kevin" parent="." instance=ExtResource("3_8ofec")]
+position = Vector2(707, 1044)

@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ctu6j1ncm0r"]
+
+[ext_resource type="Script" path="res://Utilities/Quests/QuestLog.gd" id="1_e8etf"]
+[ext_resource type="Texture2D" uid="uid://bs6212om16auq" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/PremadeButtons_XWhiteOutline.png" id="3_gkd0u"]
+
+[node name="QuestLog" type="CanvasLayer"]
+script = ExtResource("1_e8etf")
+
+[node name="Background" type="PanelContainer" parent="."]
+offset_left = 233.0
+offset_top = 137.0
+offset_right = 1537.0
+offset_bottom = 964.0
+
+[node name="QuestTabs" type="TabContainer" parent="Background"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+current_tab = 0
+
+[node name="ActiveQuests" type="HBoxContainer" parent="Background/QuestTabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollList" type="ScrollContainer" parent="Background/QuestTabs/ActiveQuests"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="Background/QuestTabs/ActiveQuests/ScrollList"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="CompletedQuests" type="HBoxContainer" parent="Background/QuestTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollList" type="ScrollContainer" parent="Background/QuestTabs/CompletedQuests"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="Background/QuestTabs/CompletedQuests/ScrollList"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="TashaTasks" type="HBoxContainer" parent="Background/QuestTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollList" type="ScrollContainer" parent="Background/QuestTabs/TashaTasks"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="Background/QuestTabs/TashaTasks/ScrollList"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="QuestDetails" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(600, 600)
+offset_left = 937.0
+offset_top = 164.0
+offset_right = 1537.0
+offset_bottom = 964.0
+
+[node name="QuestDetails" type="RichTextLabel" parent="QuestDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Here is where the Quest information will show for the quest clicked on. "
+fit_content = true
+
+[node name="CloseMe" type="TextureButton" parent="."]
+offset_left = 1465.0
+offset_top = 147.0
+offset_right = 1531.0
+offset_bottom = 211.0
+texture_normal = ExtResource("3_gkd0u")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="CloseMe" to="." method="_on_close_me_pressed"]

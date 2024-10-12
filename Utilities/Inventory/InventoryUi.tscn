@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqk6c0un73ddo"]
+
+[ext_resource type="Script" path="res://Utilities/Inventory/InventoryUi.gd" id="1_lud5j"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lud5j")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 600.0
+columns = 9
+
+[node name="Preview" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://desuv7eynbbg5"]
+
+[ext_resource type="Script" path="res://Utilities/Inventory/InvTrashCan.gd" id="1_bq0o4"]
+[ext_resource type="Texture2D" uid="uid://dth6sgkyfr2qr" path="res://PlaceholdersDeleteMe/Basic_GUI_Bundle/ButtonsText/PremadeButtons_Menu.png" id="1_s8sj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51t1x"]
+size = Vector2(261, 259)
+
+[node name="InvTrashCan" type="Area2D"]
+process_mode = 3
+position = Vector2(1665, 263)
+script = ExtResource("1_bq0o4")
+
+[node name="PremadeButtonsMenu" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_s8sj1")
+
+[node name="TossZone" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 3.5)
+shape = SubResource("RectangleShape2D_51t1x")

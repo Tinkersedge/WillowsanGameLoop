@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0c8rhu3sq3m"]
+
+[ext_resource type="Texture2D" uid="uid://o02eecntu503" path="res://LanguageGames/VocabPlants/Assets/plantGamePlantholder5.PNG" id="1_2qdlw"]
+
+[node name="Plant" type="Control"]
+custom_minimum_size = Vector2(286, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 286.0
+offset_bottom = 360.0
+
+[node name="Plant1" type="TextureButton" parent="." groups=["Plants"]]
+custom_minimum_size = Vector2(286, 0)
+layout_mode = 2
+offset_left = -1.0
+offset_right = 285.0
+offset_bottom = 369.0
+stretch_mode = 3
+
+[node name="PlantGraphic" type="Sprite2D" parent="Plant1"]
+position = Vector2(150, 249)
+scale = Vector2(0.793706, 0.793706)
+texture = ExtResource("1_2qdlw")

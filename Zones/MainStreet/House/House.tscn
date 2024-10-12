@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cc1l7jrnhbtfe"]
+
+[ext_resource type="Script" path="res://Zones/MainStreet/House/House.gd" id="1_ppvct"]
+[ext_resource type="Texture2D" uid="uid://by7gaedyhybg5" path="res://PlaceholdersDeleteMe/WholeSceneArt/example_02.png" id="2_sh20e"]
+[ext_resource type="PackedScene" uid="uid://e63sl188w0m" path="res://Characters/Player/Kevin.tscn" id="3_3kwnv"]
+[ext_resource type="Script" path="res://Interactives/Doors/Door.gd" id="4_xbgjn"]
+[ext_resource type="PackedScene" uid="uid://dcma5trmycmki" path="res://Interactives/Doors/Hint.tscn" id="5_q5knt"]
+[ext_resource type="PackedScene" uid="uid://bmbphb828lnhm" path="res://Interactives/Doors/Door.tscn" id="6_kmd73"]
+[ext_resource type="PackedScene" uid="uid://dhbywaryqfnp2" path="res://LanguageGames/BookClub/Bookcase.tscn" id="7_x5061"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g612v"]
+size = Vector2(298.5, 551)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjjdg"]
+size = Vector2(3970, 287)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2ncw"]
+size = Vector2(154, 1797)
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_ppvct")
+
+[node name="Example02" type="Sprite2D" parent="."]
+position = Vector2(1967, 599)
+scale = Vector2(1.1, 1.06)
+texture = ExtResource("2_sh20e")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="FrontDoor" type="Area2D" parent="Doors" groups=["Door"]]
+position = Vector2(714, 295)
+script = ExtResource("4_xbgjn")
+doorType = 2
+isMainDoor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/FrontDoor"]
+position = Vector2(144.75, 275.5)
+shape = SubResource("RectangleShape2D_g612v")
+
+[node name="Hint" parent="Doors/FrontDoor" instance=ExtResource("5_q5knt")]
+visible = false
+
+[node name="BalconyDoor" parent="Doors" instance=ExtResource("6_kmd73")]
+position = Vector2(-16, 438)
+scale = Vector2(2.5, 2.5)
+doorType = 3
+destination = "res://Zones/MainStreet/House/Balcony.tscn"
+isReturningDoor = true
+
+[node name="BathroomDoor" parent="Doors" instance=ExtResource("6_kmd73")]
+position = Vector2(3537, 489)
+scale = Vector2(2.5, 2.5)
+doorType = 3
+destination = "res://Zones/MainStreet/House/Bathroom.tscn"
+isReturningDoor = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1975, 1269)
+shape = SubResource("RectangleShape2D_yjjdg")
+
+[node name="WallLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43, 764)
+shape = SubResource("RectangleShape2D_l2ncw")
+
+[node name="WallRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3940, 729)
+shape = SubResource("RectangleShape2D_l2ncw")
+
+[node name="Kevin" parent="." instance=ExtResource("3_3kwnv")]
+position = Vector2(685, 960)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Kevin"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(685, 960)
+limit_left = 0
+limit_top = 0
+limit_right = 3910
+limit_bottom = 1200
+
+[node name="Bookcase" parent="." instance=ExtResource("7_x5061")]
+position = Vector2(1048, 765)
+
+[connection signal="area_entered" from="Doors/FrontDoor" to="Doors/FrontDoor" method="_on_area_entered"]
+[connection signal="area_exited" from="Doors/FrontDoor" to="Doors/FrontDoor" method="_on_area_exited"]
+[connection signal="body_entered" from="Doors/FrontDoor" to="Doors/FrontDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="Doors/FrontDoor" to="Doors/FrontDoor" method="_on_body_exited"]

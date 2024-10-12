@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmbphb828lnhm"]
+
+[ext_resource type="Texture2D" uid="uid://t7r2mex5n2p7" path="res://PlaceholdersDeleteMe/shop_door.png" id="1_6men7"]
+[ext_resource type="Script" path="res://Interactives/Doors/Door.gd" id="1_n8r8c"]
+[ext_resource type="PackedScene" uid="uid://dcma5trmycmki" path="res://Interactives/Doors/Hint.tscn" id="3_d8mjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bore4"]
+size = Vector2(149.5, 272)
+
+[node name="Door" type="Area2D" groups=["Door"]]
+script = ExtResource("1_n8r8c")
+
+[node name="ShopDoor" type="Sprite2D" parent="."]
+position = Vector2(71.5, 123)
+texture = ExtResource("1_6men7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73.5, 123)
+shape = SubResource("RectangleShape2D_bore4")
+
+[node name="Hint" parent="." instance=ExtResource("3_d8mjo")]
+visible = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

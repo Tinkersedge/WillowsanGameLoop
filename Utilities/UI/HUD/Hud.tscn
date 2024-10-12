@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbb5pcv6k1mc6"]
+
+[ext_resource type="Texture2D" uid="uid://gpkl1ls81it3" path="res://Utilities/UI/HUD/UIBg.png" id="1_mxqvd"]
+[ext_resource type="Script" path="res://Utilities/UI/HUD/Hud.gd" id="1_v6ftl"]
+[ext_resource type="PackedScene" uid="uid://bfljy4ppxssqn" path="res://Utilities/UI/HUD/ToDo.tscn" id="3_xtnig"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_v6ftl")
+
+[node name="UiBg" type="Sprite2D" parent="."]
+position = Vector2(1706, 141)
+texture = ExtResource("1_mxqvd")
+
+[node name="ToDo" parent="." instance=ExtResource("3_xtnig")]

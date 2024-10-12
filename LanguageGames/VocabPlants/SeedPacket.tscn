@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4jvlgks8lvq"]
+
+[ext_resource type="Texture2D" uid="uid://cyouifejpo1u3" path="res://LanguageGames/VocabPlants/Assets/seedPacks-assets/seedCard.png" id="1_7yimf"]
+
+[node name="SeedPacket" type="Control"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 242.0
+offset_bottom = 367.0
+mouse_filter = 2
+
+[node name="IconButtonLargeOrangeSquare" type="Sprite2D" parent="."]
+position = Vector2(129.212, 234.012)
+scale = Vector2(0.273544, 0.273544)
+texture = ExtResource("1_7yimf")
+
+[node name="SeedButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 473.0

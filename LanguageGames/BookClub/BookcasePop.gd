@@ -22,7 +22,7 @@ func openBookshelf() -> void:
 
 func readBook(bookTip):
 	#print("time to read a book ", bookTip)
-	var bookTitle = BooksData.getBookTitle(bookTip)
+	var _bookTitle = BooksData.getBookTitle(bookTip)
 	#print("book title is ", bookTitle)
 	PopUps.showMe("ReadBook", bookTip)
 	

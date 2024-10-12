@@ -30,7 +30,7 @@ collision_layer = 16
 collision_mask = 2
 floor_snap_length = 5.0
 script = ExtResource("1_vuaue")
-moveSpeed = 215
+moveSpeed = 260
 npcTexture = ExtResource("2_m81ip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -103,7 +103,7 @@ stretch_mode = 4
 [node name="QuestIcon" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-position = Vector2(3.8147e-06, -700)
+position = Vector2(145, -350)
 sprite_frames = SubResource("SpriteFrames_5bba1")
 animation = &"active"
 

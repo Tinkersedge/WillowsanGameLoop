@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://jdk87cactys7"]
+[gd_scene load_steps=3 format=3 uid="uid://jdk87cactys7"]
 
 [ext_resource type="Texture2D" uid="uid://2ws3b2ljd6qn" path="res://PlaceholdersDeleteMe/Container - Item Shop.png" id="1_qiu4o"]
+[ext_resource type="Script" path="res://Utilities/Quests/QuestLogButton.gd" id="2_f3cat"]
 
-[node name="Button" type="Button"]
+[node name="QuestLogButton" type="Button"]
 custom_minimum_size = Vector2(0, 125)
 offset_right = 858.0
 offset_bottom = 125.0
 text = "Quest Name and Face here"
 icon = ExtResource("1_qiu4o")
 expand_icon = true
+script = ExtResource("2_f3cat")
+
+[node name="ProgressLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 112.0
+offset_right = 524.0
+offset_bottom = 135.0
+text = "Name and count (0/0)"

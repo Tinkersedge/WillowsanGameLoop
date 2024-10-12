@@ -32,9 +32,11 @@ func action():
 
 func checkForQuests():
 	if playerHere:
-		# if UNLOCKED, COMPLETED, or ACTIVE quests, show quest button & !
+		# if UNLOCKED, TURN_IN, or ACTIVE quests, show quest button & !
 		var validQuests = QuestMgr.get_valid_quests(npcName)
+		#print("Inside NPC, validQuests are " , validQuests)
 		if validQuests.size() > 0:
+			print("why isn't the star showing")
 			%QuestIcon.play("active") # Show !
 			%Quest.show() # Show Quest button on talk options
 		else:

@@ -151,7 +151,7 @@ edTex = ExtResource("9_fjjx6")
 position = Vector2(3368, 1659)
 npcName = "Quentin"
 npcChatID = "1"
-moveSpeed = 212
+moveSpeed = 206
 
 [node name="Actionable" parent="NPCs/Quentin" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]
 myOwner = NodePath("..")
@@ -164,7 +164,7 @@ shape = SubResource("RectangleShape2D_epewh")
 position = Vector2(3771, 1661)
 npcName = "Tasha"
 npcChatID = "1"
-moveSpeed = 99
+moveSpeed = 203
 npcTexture = ExtResource("10_1tef0")
 
 [node name="Actionable" parent="NPCs/Tasha" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]
@@ -178,7 +178,7 @@ shape = SubResource("RectangleShape2D_epewh")
 position = Vector2(1681, 1666)
 npcName = "Tony"
 npcChatID = "1"
-moveSpeed = 249
+moveSpeed = 108
 npcTexture = ExtResource("11_4psqv")
 
 [node name="Actionable" parent="NPCs/Tony" node_paths=PackedStringArray("myOwner") instance=ExtResource("9_6thfk")]

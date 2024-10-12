@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://u0fqkycdb1vy"]
+
+[ext_resource type="Script" path="res://Utilities/Quests/ToDoQuestItem.gd" id="1_u06x0"]
+
+[node name="QuestLogItem" type="VBoxContainer" groups=["QuestItem"]]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 340.0
+offset_bottom = 50.0
+size_flags_vertical = 6
+script = ExtResource("1_u06x0")
+
+[node name="TitleButton" type="Button" parent="."]
+custom_minimum_size = Vector2(340, 50)
+layout_mode = 2
+text = "Here is a quest"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 50
+
+[node name="ItemList" type="ItemList" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+allow_search = false
+auto_height = true
+fixed_column_width = 130

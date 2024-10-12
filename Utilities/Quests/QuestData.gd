@@ -12,11 +12,13 @@ var quests = [
 		"questMatter": "side",
 		"description": "Tony needs money. Find gems.",
 		"taskType": "collection",
+		"reqText": "",
 		"requirements": {
 			"collectionItem": "Gem",
 			"found": 0,
-			"needed": 2
+			"needed": 2,
 		},
+		"turnInText": "Take gems to Tony.",
 		"rewards": {
 			"xp": 50,
 			"item": "bedazzled belt",
@@ -32,9 +34,11 @@ var quests = [
 		"questMatter": "side",
 		"description": "Quentin likes interior design.",
 		"taskType": "location",
+		"reqText": "Go to your house.",
 		"requirements": {
 			"enterHouse": false
 		},
+		"turnInText": "Find Quentin at your house.",
 		"rewards": {
 			"xp": 50,
 			"item": "bedazzled belt",
@@ -63,6 +67,9 @@ func update_quest_state(questID: String, new_state: QuestMgr.QuestState):
 
 
 func get_task_progress(task) -> String:
+	if task["state"] == QuestMgr.QuestState.TURN_IN:
+		return turn_in_progress(task)
+	
 	var task_type = task["taskType"]
 	
 	match task_type:
@@ -72,7 +79,10 @@ func get_task_progress(task) -> String:
 				task["requirements"]["found"],
 				task["requirements"]["needed"]
 			]
-		"destination":
-			return task["requirements"]["reqText"]
+		"location":
+			return task["reqText"]
 		_:
 			return "No progress tracking available"
+
+func turn_in_progress(task) -> String:
+	return task.get("turnInText", "Return to the quest giver")

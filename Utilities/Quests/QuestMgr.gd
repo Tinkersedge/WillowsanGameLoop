@@ -7,7 +7,7 @@ enum QuestState {
 	PENDING, # On NPC list, not yet available to player
 	UNLOCKED, # Unlocked and available for NPC, board, mailbox
 	ACTIVE, # Player has accepted the quest
-	COMPLETED, # Quest requirements met, ready to turn in
+	TURN_IN, # Quest requirements met, ready to turn in
 	DONE, # Quest turned in and completed
 	CANCELED # Quest canceled or abandoned
 	}
@@ -19,13 +19,14 @@ var completedQuests = [] # track completed quests
 func _ready() -> void:
 	Signals.checkItems.connect(updateQuestItems)
 	Signals.checkLocation.connect(locationCheckIn)
+	
 
 
 # get unlocked quests for specific npc
 func get_valid_quests(npcName: String) -> Array:
 	var validQuests := []
 	for quest in QuestData.quests:
-		if quest["npc"] == npcName and quest["state"] in [QuestState.UNLOCKED, QuestState.ACTIVE, QuestState.COMPLETED]:
+		if quest["npc"] == npcName and quest["state"] in [QuestState.UNLOCKED, QuestState.ACTIVE, QuestState.TURN_IN]:
 			validQuests.append(quest)
 	return validQuests
 
@@ -33,7 +34,7 @@ func progress_quests(npcName:String):
 	# Retrieve all valid quests for the given NPC
 	var validQuests = get_valid_quests(npcName)
 	for quest in validQuests:
-		if quest["state"] == QuestState.COMPLETED:
+		if quest["state"] == QuestState.TURN_IN:
 			print("Quest ", quest["name"] , " is completed. Moving to DONE")
 			complete_quest(quest["id"])
 			# Trigger UI and rewards here
@@ -54,7 +55,10 @@ func progress_quests(npcName:String):
 			elif quest.has("npcTalk"):
 				check_npc_talk_quest(quest)
 			# do not move, just help
-			return
+		
+		# Emit signal to update UI with active quest
+		Signals.questAssigned.emit(quest)
+		return
 
 
 # get quest status by ID
@@ -73,6 +77,9 @@ func assign_quest(questID: String):
 			print("Assigned quest: " , quest["name"])
 			# check if already have items needed for quest
 			check_existing_items_for_quest(quest)
+			# Update UI items about quest
+			Signals.questAssigned.emit(quest)
+			print("Signal sent to quest assigned.....")
 		else:
 			print("Quest ", questID , " is not in UNLOCKED state")
 	else:
@@ -83,11 +90,17 @@ func check_existing_items_for_quest(quest: Dictionary):
 	var player_items = InventoryManager.inventory
 	print("your inventory is " , player_items)
 	for item in player_items:
+		if item != null:
 		# make sure not null
-		if item != null and item.has("itemID") and quest.has("collectionItem"):
-			if item["itemID"] == quest["collectionItem"]:
-				quest["requirements"]["found"] += item["quantity"]
-			check_collection_quest(quest)
+			print(item.has("itemID"))
+			print("Does this quest have collection ", quest["requirements"].has("collectionItem"))
+			if item.has("itemID") and quest["requirements"].has("collectionItem"):
+				
+				if item["itemID"] == quest["requirements"]["collectionItem"]:
+					quest["requirements"]["found"] += item["quantity"]
+					
+	if quest["taskType"] == "collection":
+		check_collection_quest(quest)
 
 
 func check_collection_quest(quest):
@@ -115,19 +128,25 @@ func complete_quest(questID: String):
 	var quest = quest_data.get_quest_by_id(questID)
 	if quest != {}:
 		if quest["state"] == QuestState.ACTIVE:
-			quest_data.update_quest_state(questID, QuestState.COMPLETED)
-			#completedQuests.append(quest)
-			#activeQuests.erase(quest)
-			print("Completed quest: ", quest["name"])
+			if quest["taskType"] == "location":
+				quest_data.update_quest_state(questID, QuestState.DONE)
+				completedQuests.append(quest)
+				activeQuests.erase(quest)
+				print("Location quest done: ", quest["name"])
+				# Grant rewards here
+			else:
+				quest_data.update_quest_state(questID, QuestState.TURN_IN)
+				print("Completed quest: ", quest["name"])
 			Signals.emit_signal("questStateChanged")
-			# Grant rewards here
-			# Trigger any UI updates or notifications here
-		elif quest["state"] == QuestState.COMPLETED:
+			Signals.questUpdated.emit()
+				# Grant rewards here
+		elif quest["state"] == QuestState.TURN_IN:
 			quest_data.update_quest_state(questID, QuestState.DONE)
 			completedQuests.append(quest)
 			activeQuests.erase(quest)
 			print("Done quest: ", quest["name"])
 			Signals.emit_signal("questStateChanged")
+			Signals.questUpdated.emit()
 			
 		else: # addin if completed, make it DONE
 			print("Quest ", questID, " is not in ACTIVE state")
@@ -147,6 +166,7 @@ func unlockNextQuests(questID: String):
 				quest_data.update_quest_state(unlockID, QuestState.UNLOCKED)
 				print("unlocked quest: " , unlockQuest["name"])
 		Signals.emit_signal("questStateChanged")
+		Signals.questUpdated.emit(quest)
 
 
 func get_active_quests() -> Array:
@@ -159,16 +179,16 @@ func updateQuestItems(item):
 	print("The active quests are ", activeQuests)
 	for quest in activeQuests:
 	# see if anyone wants this itemID (coin, gem, seeds...)
-		print(quest["collectionItem"] ," and " , item["itemID"])
-		if quest["collectionItem"] == item["itemID"]:
-	# if so, add to the quantity held
+		if quest["requirements"]["collectionItem"] == item["itemID"]:
+		# if so, add to the quantity held
 			quest["requirements"]["found"] += 1
 			print(quest["requirements"]["found"])
-	# check if you have enough now to complete task
+			# check if you have enough now to complete task
 			if quest["requirements"]["found"] >= quest["requirements"]["needed"]:
-				quest["state"] = QuestState.COMPLETED
-				print("you have completed ", quest, " with ", item)
+				quest["state"] = QuestState.TURN_IN
+				print("you have completed ", quest["name"], " with ", item)
 				# TODO: Pop up need to go back to quest give with items
+			Signals.questUpdated.emit(quest)
 
 func locationCheckIn(location):
 	for quest in activeQuests:
